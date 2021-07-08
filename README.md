@@ -1,1 +1,1 @@
-Advance class for ccClub2021Fall
+Advanced class for ccClub2021Fall
