@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 sns.set_theme(color_codes=True)
 
 d = 1
@@ -11,8 +12,8 @@ x_train_tensor = 3*torch.rand(n,d)
 y_train_tensor = 3*x_train_tensor+5+0.2*torch.randn(n,d)
 
 plt.scatter(x_train_tensor.numpy(), y_train_tensor.numpy())
-plt.xlabel('Volume(x)')
-plt.ylabel('Weight(y)')
+plt.xlabel('Volume (x)')
+plt.ylabel('Weight (s)')
 plt.show()
 
 lr = 1e-1
@@ -37,8 +38,8 @@ PDF_y = a.detach().numpy()[0]*PDF_x + b.detach().numpy()[0]
 
 plt.plot(PDF_x.numpy(), PDF_y.numpy(), 'r')
 plt.scatter(x_train_tensor.numpy(), y_train_tensor)
-plt.xlabel('Volume(x)')
-plt.ylabel('Weight(y)')
+plt.xlabel('Volume (x)')
+plt.ylabel('Weight (s)')
 plt.show()
 
 a = np.arange(2.5, 3.5, 0.025)
@@ -53,6 +54,7 @@ for x, y in zip(x_train_tensor, y_train_tensor):
 Z /= 50
     
 fig = plt.figure()
+
 ax = plt.axes()
 CS = ax.contourf(A, B, Z, cmap='RdBu', alpha=0.5)
 fig.colorbar(CS)
